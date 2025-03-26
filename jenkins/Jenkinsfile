@@ -2,17 +2,17 @@ pipeline {
   agent any
 
   stages {
-    stage("Build the Application") {
+    stage("Validate Application") {
       steps {
         echo "This is build stage"
-        sh "mvn clean build"
+        sh "mvn validate"
       }
     }
 
-    stage("Packaging the Application") {
+    stage("Compile the Application") {
       steps {
         echo "This is packaging stage"
-        sh "mvn clean package"
+        sh "mvn compile"
       }
     }
   }
