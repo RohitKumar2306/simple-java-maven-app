@@ -1,7 +1,5 @@
 pipeline {
-  agent{
-    label "dev", "Master"
-  }
+  agent all
 
   stages {
     stage("Validate Application") {
