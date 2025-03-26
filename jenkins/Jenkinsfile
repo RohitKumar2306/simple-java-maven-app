@@ -26,7 +26,7 @@ pipeline {
     stage("Deploy the Application") {
       steps {
         echo "This is deploy stage"
-        sh "mvn deploy"
+        sh "mvn deploy -B -DskipTests"
       }
     }
   }
