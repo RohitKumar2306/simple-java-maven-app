@@ -16,17 +16,10 @@ pipeline {
       }
     }
 
-    stage("Install the Application") {
-      steps {
-        echo "This is install stage"
-        sh "mvn install -Dmaven.test.skip=true"
-      }
-    }
-
-    stage("Deploy the Application") {
-      steps {
-        echo "This is deploy stage"
-        sh "mvn deploy -B -DskipTests"
+    post {
+      success {
+        echo "BUILD IS SUCCESSFULL"
+        archiveArtifacts artifacts: '**/target/*.war'
       }
     }
   }
