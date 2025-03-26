@@ -9,7 +9,7 @@ pipeline {
       }
     }
 
-    stage("Compile the Application") {
+    stage("Package the Application") {
       steps {
         echo "This is packaging stage"
         sh "mvn clean package"
@@ -18,8 +18,8 @@ pipeline {
 
     stage("Deploy the Application") {
       steps {
-        echo "This is packaging stage"
-        sh "mvn deploy"
+        echo "This is deploy stage"
+        sh "mvn install -Dmaven.test.skip=true"
       }
     }
   }
