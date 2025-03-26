@@ -15,12 +15,11 @@ pipeline {
         sh "mvn clean package"
       }
     }
-
-    post {
+  }
+  post {
       success {
         echo "BUILD IS SUCCESSFULL"
         archiveArtifacts artifacts: '**/target/*.war'
       }
-    }
   }
 }
