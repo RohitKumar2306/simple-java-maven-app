@@ -5,7 +5,14 @@ pipeline {
     stage("Build the Application") {
       steps {
         echo "This is build stage"
-        sh 'pwd'
+        sh "mvn clean build"
+      }
+    }
+
+    stage("Packaging the Application") {
+      steps {
+        echo "This is packaging stage"
+        sh "mvn clean package"
       }
     }
   }
